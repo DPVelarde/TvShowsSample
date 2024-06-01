@@ -1,8 +1,7 @@
 
 # TvShowsSample
 
-This is my trial for Brightcove Assessment
-This app allows the users to get programs in the US. In the following figure, you can find the developed architecture:
+This is my trial for Brightcove Assessment. This app allows the users to get programs in the US. In the following figure, you can find the developed architecture:
 
 ![TvShowsSampleArchitecture](./BrightcoveTrialDiagram.drawio.png)
 
