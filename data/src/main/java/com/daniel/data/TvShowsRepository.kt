@@ -1,6 +1,6 @@
 package com.daniel.data
 
-import com.daniel.data.model.Program
+import com.daniel.data.model.ShowSchedule
 import com.daniel.data.model.Show
 import kotlinx.coroutines.flow.Flow
 
@@ -8,7 +8,7 @@ interface TvShowsRepository {
     fun getShowsSchedule(
         country: String,
         date: String
-    ): Flow<List<Program>>
+    ): Flow<List<ShowSchedule>>
 
     fun getShowDetail(
         id: Int

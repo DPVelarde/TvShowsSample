@@ -1,21 +1,21 @@
 package com.daniel.data.model
 
 data class Show(
-    val averageRuntime: Int,
-    val ended: Any?,
-    val genres: List<Any>,
     val id: Int,
-    val image: Image,
-    val language: String,
-    val links: Links,
     val name: String,
-    val network: Network,
-    val officialSite: String,
-    val premiered: String,
-    val runtime: Int,
-    val schedule: Schedule,
-    val status: String,
-    val summary: String,
-    val type: String,
-    val updated: Int
+    val image: Image,
+    val averageRuntime: Int? = null,
+    val ended: String? = null,
+    val genres: List<String>? = null,
+    val language: String? = null,
+    val links: Links? = null,
+    val network: Network? = null,
+    val officialSite: String? = null,
+    val premiered: String? = null,
+    val runtime: Int? = null,
+    val schedule: Schedule? = null,
+    val status: String? = null,
+    val summary: String? = null,
+    val type: String? = null,
+    val updated: Int? = null
 )
