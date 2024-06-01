@@ -52,7 +52,7 @@ internal class TvShowsMapper @Inject constructor() {
             image = showImageResponseToModel(show.image),
             averageRuntime = show.averageRuntime,
             ended = show.ended,
-            genres = show.genres,
+            genres = showGenresResponseToModel(show.genres),
             language = show.language,
             links = showLinksResponseToModel(show.links),
             network = showNetworkResponseToModel(show.network),
@@ -72,6 +72,22 @@ internal class TvShowsMapper @Inject constructor() {
             medium = image?.medium.orEmpty(),
             original = image?.original.orEmpty()
         )
+    }
+
+    private fun showGenresResponseToModel(genres: List<String>?): String? {
+        return genres?.let {
+            val stringBuilder = StringBuilder("")
+
+            it.forEachIndexed { index, s ->
+                if (index != 0) {
+                    stringBuilder.append("|")
+                }
+
+                stringBuilder.append(s)
+            }
+
+            stringBuilder.toString()
+        }
     }
 
     private fun showLinksResponseToModel(links: LinksResponse?): Links {

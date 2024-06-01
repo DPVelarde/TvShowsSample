@@ -14,7 +14,7 @@ internal interface TvShowsApi {
         @Query("date") date: String? = null
     ): List<ShowScheduleResponse>
 
-    @GET("/shows/{id}")
+    @GET("shows/{id}")
     suspend fun getShowDetail(
         @Path("id") id: Int
     ): ShowResponse

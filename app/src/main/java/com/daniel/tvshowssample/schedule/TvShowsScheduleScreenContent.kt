@@ -32,8 +32,7 @@ fun TvShowsScheduleScreenContent(items: List<ShowSchedule>) {
             )
         }
         items(
-            items = items,
-            key = { it.id }
+            items = items
         ) {
             TvShowsScheduleItem(item = it)
         }

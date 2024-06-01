@@ -6,7 +6,7 @@ data class Show(
     val image: Image,
     val averageRuntime: Int? = null,
     val ended: String? = null,
-    val genres: List<String>? = null,
+    val genres: String? = null,
     val language: String? = null,
     val links: Links? = null,
     val network: Network? = null,

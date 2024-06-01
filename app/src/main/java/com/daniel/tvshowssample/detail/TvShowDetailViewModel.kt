@@ -19,13 +19,16 @@ class TvShowDetailViewModel @Inject constructor(
     var state = mutableStateOf(TvShowDetailViewState())
         private set
 
-    fun getTvShowsSchedule(id: Int) {
+    fun getTvShowDetail(id: Int) {
         getTvShowDetailUseCase(id)
             .onStart { state.value = TvShowDetailViewState(isLoading = true) }
             .onEach {
-                state.value = TvShowDetailViewState(showsSchedule = it)
+                state.value = TvShowDetailViewState(show = it)
             }
-            .catch { state.value = TvShowDetailViewState(error = it) }
+            .catch {
+                it.printStackTrace()
+                state.value = TvShowDetailViewState(error = it)
+            }
             .launchIn(viewModelScope)
     }
 }

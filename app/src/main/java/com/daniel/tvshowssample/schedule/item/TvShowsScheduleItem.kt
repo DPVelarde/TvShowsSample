@@ -30,12 +30,12 @@ import com.daniel.tvshowssample.ui.theme.TvShowsSampleTheme
 fun TvShowsScheduleItem(
     modifier: Modifier = Modifier,
     item: ShowSchedule,
-    onClickItem: (ShowSchedule) -> Unit = {}
+    onClickItem: (Show) -> Unit = {}
 ) {
     Card(
         modifier = modifier
             .fillMaxWidth()
-            .clickable { onClickItem(item) },
+            .clickable { onClickItem(item.show) },
         shape = MaterialTheme.shapes.medium,
         colors = CardDefaults.cardColors(containerColor = Color.LightGray)
     ) {
