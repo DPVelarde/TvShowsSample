@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "TvShowsSample"
 include(":app")
+include(":data")
