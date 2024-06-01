@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TvShowsSample</string>
+
+    <string name="upcoming_shows">Upcoming Shows in the US</string>
 </resources>
