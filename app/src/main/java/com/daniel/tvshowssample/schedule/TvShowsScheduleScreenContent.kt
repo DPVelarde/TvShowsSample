@@ -11,13 +11,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.daniel.data.model.Show
 import com.daniel.data.model.ShowSchedule
 import com.daniel.tvshowssample.R
 import com.daniel.tvshowssample.schedule.item.TvShowsScheduleItem
 import com.daniel.tvshowssample.ui.theme.TvShowsSampleTheme
 
 @Composable
-fun TvShowsScheduleScreenContent(items: List<ShowSchedule>) {
+fun TvShowsScheduleScreenContent(
+    items: List<ShowSchedule>,
+    onShowClicked: (Show) -> Unit = {}
+) {
     LazyColumn(
         modifier = Modifier.padding(
             horizontal = 16.dp
@@ -34,7 +38,10 @@ fun TvShowsScheduleScreenContent(items: List<ShowSchedule>) {
         items(
             items = items
         ) {
-            TvShowsScheduleItem(item = it)
+            TvShowsScheduleItem(
+                item = it,
+                onClickItem = onShowClicked
+            )
         }
     }
 }

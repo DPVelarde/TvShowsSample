@@ -7,7 +7,10 @@ class GetTvShowsScheduleUseCase @Inject constructor(
     private val tvShowsRepository: TvShowsRepository
 ) {
     operator fun invoke(
-        country: String,
         date: String
-    ) = tvShowsRepository.getShowsSchedule(country, date)
+    ) = tvShowsRepository.getShowsSchedule(US_COUNTRY, date)
+
+    companion object {
+        private const val US_COUNTRY = "US"
+    }
 }

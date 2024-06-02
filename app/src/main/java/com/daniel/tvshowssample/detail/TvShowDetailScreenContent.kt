@@ -56,22 +56,27 @@ fun TvShowDetailScreenContent(show: Show) {
 
         }
 
-        Card(
+        ShowInformation(show)
+    }
+}
+
+@Composable
+private fun ShowInformation(show: Show) {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 8.dp)
+    ) {
+        Column(
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = 8.dp)
+                .padding(vertical = 8.dp, horizontal = 16.dp)
         ) {
-            Column(
-                modifier = Modifier
-                    .padding(vertical = 8.dp, horizontal = 16.dp)
-            ) {
-                Text(text = "Show Information")
-                show.language?.let { Text(text = "Language: $it") }
-                show.type?.let { Text(text = "Type: $it") }
-                show.status?.let { Text(text = "Status: $it") }
-                show.runtime?.let { Text(text = "Runtime: $it") }
-                show.genres?.let { if (it.isNotEmpty()) Text(text = "Genres: $it") }
-            }
+            Text(text = "Show Information")
+            show.language?.let { Text(text = "Language: $it") }
+            show.type?.let { Text(text = "Type: $it") }
+            show.status?.let { Text(text = "Status: $it") }
+            show.runtime?.let { Text(text = "Runtime: $it") }
+            show.genres?.let { if (it.isNotEmpty()) Text(text = "Genres: $it") }
         }
     }
 }
