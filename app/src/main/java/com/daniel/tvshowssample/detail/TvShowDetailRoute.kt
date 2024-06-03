@@ -7,7 +7,7 @@ import androidx.navigation.NavController
 
 @Composable
 fun TvShowDetailRoute(
-    viewModel: TvShowDetailViewModel = hiltViewModel(),
+    viewModel: TvShowDetailViewModel,
     navController: NavController,
     id: Int
 ) {

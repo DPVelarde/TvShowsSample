@@ -5,5 +5,6 @@ enum class Screens(
 ) {
     ShowsSchedule("showsschedule"),
     ShowDetail("detail/{id}"),
-    ShowSearch("search")
+    ShowSearch("search"),
+    ShowsDatePicker("datepicker")
 }

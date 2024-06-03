@@ -9,7 +9,9 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
+import java.time.Instant
 import java.time.LocalDate
+import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 import javax.inject.Inject
 
@@ -17,23 +19,42 @@ import javax.inject.Inject
 class TvShowsScheduleViewModel @Inject constructor(
     private val getTvShowsScheduleUseCase: GetTvShowsScheduleUseCase
 ) : ViewModel() {
-    var state = mutableStateOf(TvShowsScheduleViewState())
+    private var selectedDate: String = getDefaultDate()
+
+    var state = mutableStateOf(TvShowsScheduleViewState(selectedDate = selectedDate))
         private set
 
     init {
-        getTvShowsSchedule()
+        getTvShowsSchedule(selectedDate)
     }
 
-    private fun getTvShowsSchedule() {
-        val date = LocalDate.now()
+    private fun getDefaultDate(): String {
         val dateTimeFormatter = DateTimeFormatter.ISO_LOCAL_DATE
+        val date = LocalDate.now()
+        return dateTimeFormatter.format(date)
+    }
 
-        getTvShowsScheduleUseCase(dateTimeFormatter.format(date))
+    fun updateSelectedDate(dateLong: Long) {
+        val dateTimeFormatter = DateTimeFormatter.ISO_LOCAL_DATE
+        val localDate = Instant.ofEpochMilli(dateLong).atZone(ZoneOffset.UTC).toLocalDate()
+        selectedDate = dateTimeFormatter.format(localDate)
+        getTvShowsSchedule(selectedDate)
+    }
+
+    private fun getTvShowsSchedule(selectedDate: String) {
+        getTvShowsScheduleUseCase(selectedDate)
             .onStart { state.value = TvShowsScheduleViewState(isLoading = true) }
             .onEach {
-                state.value = TvShowsScheduleViewState(showsSchedule = it)
+                state.value = TvShowsScheduleViewState(
+                    showsSchedule = it,
+                    selectedDate = selectedDate
+                )
             }
             .catch { state.value = TvShowsScheduleViewState(error = it) }
             .launchIn(viewModelScope)
+    }
+
+    fun dateValidator(date: Long): Boolean {
+        return Instant.now().toEpochMilli() > date
     }
 }

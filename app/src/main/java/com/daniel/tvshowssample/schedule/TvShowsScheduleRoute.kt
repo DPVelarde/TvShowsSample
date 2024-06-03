@@ -18,6 +18,9 @@ fun TvShowsScheduleRoute(
         },
         onSearchClicked = {
             navController.navigate(Screens.ShowSearch.route)
+        },
+        onDatePickerClicked = {
+            navController.navigate(Screens.ShowsDatePicker.route)
         }
     )
 }
