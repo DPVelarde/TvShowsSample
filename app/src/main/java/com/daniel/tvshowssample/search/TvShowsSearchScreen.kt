@@ -23,6 +23,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.TextFieldValue
@@ -45,6 +46,7 @@ fun TvShowsSearchScreen(
     onBackPressed: () -> Unit = {}
 ) {
     var queryText by remember { mutableStateOf(TextFieldValue("")) }
+    val keyboardController = LocalSoftwareKeyboardController.current
 
     Scaffold(
         topBar = {
@@ -54,7 +56,10 @@ fun TvShowsSearchScreen(
                 },
                 navigationIcon = {
                     IconButton(onClick = onBackPressed) {
-                        Icon(imageVector = Icons.Default.ArrowBack, contentDescription = null)
+                        Icon(
+                            imageVector = Icons.Default.ArrowBack,
+                            contentDescription = stringResource(id = R.string.navigate_up)
+                        )
                     }
                 }
             )
@@ -79,6 +84,7 @@ fun TvShowsSearchScreen(
                     keyboardActions = KeyboardActions(
                         onSearch = {
                             onShowSearch(queryText.text)
+                            keyboardController?.hide()
                         }
                     ),
                     keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search)
