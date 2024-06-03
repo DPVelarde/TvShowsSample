@@ -4,8 +4,23 @@
     <string name="upcoming_shows">Upcoming Shows in the US</string>
 
     <string name="shows_schedule_title">Shows Schedule</string>
+    <string name="shows_schedule_start">Start: %1$s</string>
+
+    <string name="show_detail_title">Show details</string>
+    <string name="show_detail_info_title">Show information</string>
+    <string name="show_detail_info_language">Language: %1$s</string>
+    <string name="show_detail_info_type">Type: %1$s</string>
+    <string name="show_detail_info_status">Status: %1$s</string>
+    <string name="show_detail_info_runtime">Runtime: %1$s</string>
+    <string name="show_detail_info_genres">Genres: %1$s</string>
 
     <string name="shows_search_title">Shows Search</string>
     <string name="shows_search_placeholder">Type in the search box to look for shows.</string>
-    <string name="shows_search_not_found">There are no shows that matches your query.</string>
+    <string name="shows_search_not_found">There are no shows that match your query.</string>
+
+    <string name="show_image_placeholder">Show Image</string>
+
+    <string name="show_generic_error">Unexpected error, please try again!</string>
+
+    <string name="navigate_up">Navigate up</string>
 </resources>

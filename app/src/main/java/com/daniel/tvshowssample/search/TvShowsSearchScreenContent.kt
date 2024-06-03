@@ -48,7 +48,7 @@ fun TvShowsSearchScreenContent(
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 internal fun TvShowsSearchScreenContentPreview() {
     TvShowsSampleTheme {

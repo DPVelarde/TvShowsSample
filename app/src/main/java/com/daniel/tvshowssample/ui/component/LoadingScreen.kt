@@ -19,7 +19,7 @@ fun LoadingScreen() {
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 internal fun LoadingScreenPreview() {
     TvShowsSampleTheme {

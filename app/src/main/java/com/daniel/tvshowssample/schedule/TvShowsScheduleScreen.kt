@@ -36,7 +36,10 @@ fun TvShowsScheduleScreen(
                 },
                 actions = {
                     IconButton(onClick = onSearchClicked) {
-                        Icon(imageVector = Icons.Default.Search, contentDescription = null)
+                        Icon(
+                            imageVector = Icons.Default.Search,
+                            contentDescription = stringResource(id = R.string.navigate_up)
+                        )
                     }
                 }
             )
@@ -67,7 +70,7 @@ fun TvShowsScheduleScreen(
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 internal fun TvShowsScheduleScreenPreview() {
     TvShowsSampleTheme {

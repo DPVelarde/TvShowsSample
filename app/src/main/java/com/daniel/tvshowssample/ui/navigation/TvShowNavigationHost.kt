@@ -11,6 +11,9 @@ import com.daniel.tvshowssample.detail.TvShowDetailRoute
 import com.daniel.tvshowssample.schedule.TvShowsScheduleRoute
 import com.daniel.tvshowssample.search.TvShowsSearchRoute
 
+private const val ID_ARG = "id"
+private const val ID_ARG_DEFAULT = -1
+
 @Composable
 fun TvShowNavigationHost(
     navController: NavHostController
@@ -28,10 +31,10 @@ fun TvShowNavigationHost(
         composable(
             route = Screens.ShowDetail.route,
             arguments = listOf(
-                navArgument(name = "id") { type = NavType.IntType }
+                navArgument(name = ID_ARG) { type = NavType.IntType }
             )
         ) { navBackStackEntry ->
-            val id = navBackStackEntry.arguments?.getInt("id") ?: -1
+            val id = navBackStackEntry.arguments?.getInt(ID_ARG) ?: ID_ARG_DEFAULT
             TvShowDetailRoute(
                 navController = navController,
                 id = id

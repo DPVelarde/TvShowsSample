@@ -11,7 +11,12 @@ fun TvShowDetailRoute(
     navController: NavController,
     id: Int
 ) {
-    TvShowDetailScreen(state = viewModel.state.value)
+    TvShowDetailScreen(
+        state = viewModel.state.value,
+        onBackPressed = {
+            navController.navigateUp()
+        }
+    )
 
     LaunchedEffect(Unit) {
         viewModel.getTvShowDetail(id)

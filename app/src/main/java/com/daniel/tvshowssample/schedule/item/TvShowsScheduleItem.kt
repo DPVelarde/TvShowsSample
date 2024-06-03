@@ -14,8 +14,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -37,17 +37,16 @@ fun TvShowsScheduleItem(
             .fillMaxWidth()
             .clickable { onClickItem(item.show) },
         shape = MaterialTheme.shapes.medium,
-        colors = CardDefaults.cardColors(containerColor = Color.LightGray)
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.secondaryContainer)
     ) {
-        Row(
-        ) {
+        Row {
             AsyncImage(
                 modifier = Modifier
                     .align(Alignment.CenterVertically)
                     .width(100.dp)
                     .aspectRatio(0.71f),
                 model = item.show.image.medium,
-                contentDescription = null,
+                contentDescription = stringResource(id = R.string.show_image_placeholder),
                 error = painterResource(id = R.drawable.il_tv_show_placeholder)
             )
             Column(
@@ -70,7 +69,7 @@ fun TvShowsScheduleItem(
                 )
                 Text(
                     modifier = Modifier.padding(top = 8.dp),
-                    text = "Start: ${item.airTime}",
+                    text = stringResource(id = R.string.shows_schedule_start, item.airTime),
                     style = MaterialTheme.typography.labelLarge
                 )
             }
@@ -78,9 +77,9 @@ fun TvShowsScheduleItem(
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
-fun TvShowsScheduleItemPreview() {
+internal fun TvShowsScheduleItemPreview() {
     TvShowsSampleTheme {
         TvShowsScheduleItem(
             modifier = Modifier.padding(16.dp),

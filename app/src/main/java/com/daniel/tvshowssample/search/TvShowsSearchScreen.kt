@@ -18,7 +18,6 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -34,7 +33,6 @@ import com.daniel.tvshowssample.ui.component.GenericErrorScreen
 import com.daniel.tvshowssample.ui.component.InformationScreen
 import com.daniel.tvshowssample.ui.component.LoadingScreen
 import com.daniel.tvshowssample.ui.theme.TvShowsSampleTheme
-import kotlinx.coroutines.delay
 
 private const val INPUT_DEBOUNCE_TIME = 2000L
 
@@ -61,11 +59,11 @@ fun TvShowsSearchScreen(
                 }
             )
         }
-    ) { it ->
+    ) { paddingValues ->
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(it)
+                .padding(paddingValues)
         ) {
             Column {
                 TextField(
@@ -118,16 +116,9 @@ fun TvShowsSearchScreen(
             }
         }
     }
-
-    LaunchedEffect(key1 = queryText) {
-        if (queryText.text.isBlank()) return@LaunchedEffect
-
-        delay(INPUT_DEBOUNCE_TIME)
-        onShowSearch(queryText.text)
-    }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 internal fun TvShowsSearchScreenPreview() {
     TvShowsSampleTheme {

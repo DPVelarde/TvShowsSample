@@ -46,7 +46,7 @@ fun TvShowsScheduleScreenContent(
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 fun TvShowsScreenContentPreview() {
     TvShowsSampleTheme {
