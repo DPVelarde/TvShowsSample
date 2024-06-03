@@ -38,7 +38,7 @@ internal class TvShowsMapper @Inject constructor() {
         }
     }
 
-    fun showScheduleResponseToModel(show: ShowResponse): Show {
+    private fun showScheduleResponseToModel(show: ShowResponse): Show {
         return Show(
             id = show.id,
             name = show.name,
