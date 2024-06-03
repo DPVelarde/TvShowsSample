@@ -1,8 +1,8 @@
 package com.daniel.framework.data
 
 import com.daniel.data.TvShowsRemoteSource
-import com.daniel.data.model.ShowSchedule
 import com.daniel.data.model.Show
+import com.daniel.data.model.ShowSchedule
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
@@ -19,7 +19,7 @@ internal class TvShowsMazeSource @Inject constructor(
         emit(tvShowsMapper.showDetailResponseToModel(tvSHowsApi.getShowDetail(id)))
     }
 
-    override fun search(query: String): Flow<List<Show>> {
-        TODO("Not yet implemented")
+    override fun search(query: String): Flow<List<Show>> = flow {
+        emit(tvShowsMapper.showsSearchResponseToModel(tvSHowsApi.searchShow(query)))
     }
 }

@@ -16,6 +16,7 @@ import com.daniel.framework.data.dto.NetworkResponse
 import com.daniel.framework.data.dto.ScheduleResponse
 import com.daniel.framework.data.dto.ShowResponse
 import com.daniel.framework.data.dto.ShowScheduleResponse
+import com.daniel.framework.data.dto.ShowSearchResponse
 import javax.inject.Inject
 
 internal class TvShowsMapper @Inject constructor() {
@@ -128,4 +129,7 @@ internal class TvShowsMapper @Inject constructor() {
         )
     }
 
+    fun showsSearchResponseToModel(results: List<ShowSearchResponse>): List<Show> {
+        return results.map { showDetailResponseToModel(show = it.show) }
+    }
 }

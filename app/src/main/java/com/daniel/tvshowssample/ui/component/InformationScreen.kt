@@ -21,7 +21,7 @@ import com.daniel.tvshowssample.R
 import com.daniel.tvshowssample.ui.theme.TvShowsSampleTheme
 
 @Composable
-fun ErrorScreen(
+fun InformationScreen(
     @DrawableRes image: Int,
     text: String
 ) {
@@ -33,15 +33,16 @@ fun ErrorScreen(
     ) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             Image(
-                modifier = Modifier.size(300.dp),
+                modifier = Modifier.size(200.dp),
                 painter = painterResource(id = image),
                 contentDescription = null
             )
             Text(
-                modifier = Modifier.fillMaxWidth()
-                    .padding(top = 8.dp),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 16.dp),
                 text = text,
-                style = MaterialTheme.typography.headlineSmall,
+                style = MaterialTheme.typography.titleMedium,
                 textAlign = TextAlign.Center
             )
         }
@@ -50,12 +51,12 @@ fun ErrorScreen(
 
 @Composable
 fun GenericErrorScreen() {
-    ErrorScreen(image = R.drawable.il_generic_error, text = "Error genérico.")
+    InformationScreen(image = R.drawable.il_generic_error, text = "Error genérico.")
 }
 
 @Preview
 @Composable
-fun GenericErrorScreenPreview() {
+fun InformationScreenPreview() {
     TvShowsSampleTheme {
         GenericErrorScreen()
     }

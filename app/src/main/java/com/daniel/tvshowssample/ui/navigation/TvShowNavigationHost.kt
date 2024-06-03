@@ -7,9 +7,9 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
-import androidx.navigation.navigation
 import com.daniel.tvshowssample.detail.TvShowDetailRoute
 import com.daniel.tvshowssample.schedule.TvShowsScheduleRoute
+import com.daniel.tvshowssample.search.TvShowsSearchRoute
 
 @Composable
 fun TvShowNavigationHost(
@@ -35,6 +35,15 @@ fun TvShowNavigationHost(
             TvShowDetailRoute(
                 navController = navController,
                 id = id
+            )
+        }
+
+        composable(
+            route = Screens.ShowSearch.route
+        ) {
+            TvShowsSearchRoute(
+                viewModel = hiltViewModel(),
+                navController = navController
             )
         }
     }

@@ -4,5 +4,6 @@ enum class Screens(
     val route: String
 ) {
     ShowsSchedule("showsschedule"),
-    ShowDetail("detail/{id}")
+    ShowDetail("detail/{id}"),
+    ShowSearch("search")
 }

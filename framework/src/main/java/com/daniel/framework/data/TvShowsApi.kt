@@ -2,12 +2,12 @@ package com.daniel.framework.data
 
 import com.daniel.framework.data.dto.ShowResponse
 import com.daniel.framework.data.dto.ShowScheduleResponse
+import com.daniel.framework.data.dto.ShowSearchResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
 
 internal interface TvShowsApi {
-
     @GET("schedule")
     suspend fun getShowsSchedule(
         @Query("country") country: String? = null,
@@ -19,4 +19,8 @@ internal interface TvShowsApi {
         @Path("id") id: Int
     ): ShowResponse
 
+    @GET("search/shows")
+    suspend fun searchShow(
+        @Query("q") query: String
+    ): List<ShowSearchResponse>
 }
