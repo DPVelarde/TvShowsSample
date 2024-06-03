@@ -39,4 +39,8 @@ dependencies {
     implementation(project(":data"))
 
     testImplementation("junit:junit:4.13.2")
+    testImplementation("io.mockk:mockk-android:1.13.11")
+    testImplementation("io.mockk:mockk-agent:1.13.11")
+
+    testImplementation ("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.8.0")
 }

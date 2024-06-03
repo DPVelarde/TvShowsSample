@@ -24,7 +24,5 @@ internal data class ShowScheduleResponse(
     @SerializedName("summary")
     val summary: String? = null,
     @SerializedName("type")
-    val type: String? = null,
-    @SerializedName("url")
-    val url: String? = null
+    val type: String? = null
 )

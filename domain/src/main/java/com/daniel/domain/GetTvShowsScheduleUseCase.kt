@@ -11,6 +11,6 @@ class GetTvShowsScheduleUseCase @Inject constructor(
     ) = tvShowsRepository.getShowsSchedule(US_COUNTRY, date)
 
     companion object {
-        private const val US_COUNTRY = "US"
+        internal const val US_COUNTRY = "US"
     }
 }

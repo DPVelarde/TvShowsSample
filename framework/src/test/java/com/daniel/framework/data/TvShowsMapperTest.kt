@@ -290,8 +290,7 @@ class TvShowsMapperTest {
             season = SEASON,
             show = showResponse,
             summary = SUMMARY,
-            type = TYPE,
-            url = URL
+            type = TYPE
         )
     }
 
