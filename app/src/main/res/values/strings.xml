@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TvShowsSample</string>
+    <string name="app_name">Tv Shows</string>
 
     <string name="upcoming_shows">Upcoming Shows for %1$s</string>
 
