@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -24,7 +25,9 @@ import com.daniel.tvshowssample.ui.theme.TvShowsSampleTheme
 @Composable
 fun InformationScreen(
     @DrawableRes image: Int,
-    text: String
+    text: String,
+    button: String? = null,
+    onButtonClicked: () -> Unit = {}
 ) {
     Box(
         modifier = Modifier
@@ -46,15 +49,25 @@ fun InformationScreen(
                 style = MaterialTheme.typography.titleMedium,
                 textAlign = TextAlign.Center
             )
+            button?.let {
+                Button(onClick = onButtonClicked) {
+                    Text(text = button)
+                }
+            }
         }
     }
 }
 
 @Composable
-fun GenericErrorScreen() {
+fun GenericErrorScreen(
+    button: String? = null,
+    onButtonClicked: () -> Unit = {}
+) {
     InformationScreen(
         image = R.drawable.il_generic_error,
-        text = stringResource(id = R.string.show_generic_error)
+        text = stringResource(id = R.string.show_generic_error),
+        button = button,
+        onButtonClicked = onButtonClicked
     )
 }
 

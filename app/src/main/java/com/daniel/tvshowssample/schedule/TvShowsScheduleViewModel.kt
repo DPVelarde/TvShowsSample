@@ -25,6 +25,10 @@ class TvShowsScheduleViewModel @Inject constructor(
         private set
 
     init {
+        reload()
+    }
+
+    fun reload() {
         getTvShowsSchedule(selectedDate)
     }
 
@@ -57,4 +61,5 @@ class TvShowsScheduleViewModel @Inject constructor(
     fun dateValidator(date: Long): Boolean {
         return Instant.now().toEpochMilli() > date
     }
+
 }

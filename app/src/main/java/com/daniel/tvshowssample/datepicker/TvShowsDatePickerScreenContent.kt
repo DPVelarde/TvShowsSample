@@ -13,13 +13,11 @@ import com.daniel.tvshowssample.ui.theme.TvShowsSampleTheme
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TvShowsDatePickerScreenContent(
-    state: DatePickerState,
-    dateValidator: (Long) -> Boolean
+    state: DatePickerState
 ) {
     DatePicker(
         modifier = Modifier.fillMaxSize(),
-        state = state,
-        dateValidator = dateValidator
+        state = state
     )
 
 }
@@ -32,10 +30,7 @@ internal fun TvShowsDatePickerScreenContentPreview() {
 
     TvShowsSampleTheme {
         TvShowsDatePickerScreenContent(
-            state = pickerState,
-            dateValidator = {
-                true
-            }
+            state = pickerState
         )
     }
 }

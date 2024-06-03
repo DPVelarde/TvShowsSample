@@ -28,7 +28,8 @@ fun TvShowsScheduleScreen(
     state: TvShowsScheduleViewState,
     onShowClicked: (Show) -> Unit = {},
     onSearchClicked: () -> Unit = {},
-    onDatePickerClicked: () -> Unit = {}
+    onDatePickerClicked: () -> Unit = {},
+    onReload: () -> Unit = {}
 ) {
     Scaffold(
         topBar = {
@@ -67,7 +68,10 @@ fun TvShowsScheduleScreen(
                 }
 
                 (state.error != null) -> {
-                    GenericErrorScreen()
+                    GenericErrorScreen(
+                        button = stringResource(id = R.string.retry),
+                        onButtonClicked = onReload
+                    )
                 }
 
                 else -> {

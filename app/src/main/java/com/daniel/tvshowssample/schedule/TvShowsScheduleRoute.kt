@@ -21,6 +21,9 @@ fun TvShowsScheduleRoute(
         },
         onDatePickerClicked = {
             navController.navigate(Screens.ShowsDatePicker.route)
+        },
+        onReload = {
+            viewModel.reload()
         }
     )
 }
